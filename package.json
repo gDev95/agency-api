@@ -7,7 +7,7 @@
 		"start-dev": "ts-node-dev --respawn --transpileOnly ./server/server.ts",
 		"tsc": "tsc",
 		"prod": "tsc && node ./build/server.js",
-		"build": "webpack --config webpack.config.js && tsc",
+		"build": "tsc",
 		"lint": "tslint -c ../tslint.json -p ./tsconfig.json",
 		"test": "jest --coverage --colors",
 		"test:watch": "jest --coverage --colors --watchAll"

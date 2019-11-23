@@ -8,10 +8,7 @@ import connect from "./db";
 
 const app = express();
 const port = process.env.PORT || 9000;
-const staticFiles = express.static(
-	path.join(__dirname, "../../frontend/build")
-);
-app.use(staticFiles);
+
 app.use(cors());
 app.use(
 	"/graphql",
@@ -23,6 +20,6 @@ app.use(
 		graphiql: true
 	})
 );
-app.use("/*", staticFiles);
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 connect();

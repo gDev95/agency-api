@@ -6,14 +6,18 @@ import {
 	GraphQLNonNull,
 	GraphQLString
 } from "graphql";
+import * as bcrypt from "bcrypt";
 
-import ArtistModel, { IEvent } from "../models/artist/artist.model";
+import * as jwt from "jsonwebtoken";
+
+import ArtistModel from "../models/artist/artist.model";
 import {
 	ArtistType,
 	AddArtistInput,
 	EditArtistInput
 } from "./types/artist.type";
 import { UserType } from "./types/user.type";
+import UserModel from "../models/user/user.model";
 
 const RootQuery = new GraphQLObjectType({
 	name: "RootQueryType",
@@ -85,6 +89,38 @@ const Mutation = new GraphQLObjectType({
 			resolve: async (root, args, context, info) => {
 				const artist = await ArtistModel.findByIdAndDelete(args.id);
 				return artist;
+			}
+		},
+		login: {
+			type: UserType,
+			args: {
+				email: { type: GraphQLNonNull(GraphQLString) },
+				password: { type: GraphQLNonNull(GraphQLString) }
+			},
+			resolve: async (root, args, context, info) => {
+				const user = await UserModel.findOne({
+					email: args.email
+				});
+
+				if (user) {
+					const isPasswordCorrect = await bcrypt.compare(
+						args.password,
+						user.password
+					);
+					if (isPasswordCorrect) {
+						const token = await jwt.sign(
+							{
+								data: "foobar"
+							},
+							"secret",
+							{ expiresIn: "1h" }
+						);
+
+						return { token, email: args.email };
+					}
+				} else {
+					throw new Error("Could not find user or invalid password");
+				}
 			}
 		}
 	}

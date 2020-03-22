@@ -4,9 +4,7 @@
 	"private": true,
 	"scripts": {
 		"start": "node ./build/server.js",
-		"db:dev": "DB=test",
-		"run:dev": "ts-node-dev --respawn --transpileOnly ./server/server.ts",
-		"dev": " db:dev && run:dev ",
+		"dev": " ts-node-dev --respawn --transpileOnly ./server/server.ts",
 		"tsc": "tsc",
 		"prod": "tsc && db-prod && node ./build/server.js",
 		"build": "tsc",
@@ -28,7 +26,6 @@
 		"cookie-parser": "~1.4.4",
 		"cors": "^2.8.5",
 		"debug": "~2.6.9",
-		"dotenv": "^8.2.0",
 		"express": "~4.16.1",
 		"express-graphql": "^0.9.0",
 		"graphql": "^14.5.3",

@@ -1,3 +1,5 @@
-const DB_PASSWORD = "tCzl0gxmb26epPC2";
+import { config } from "./env.config";
 
-export const DB_URI = `mongodb+srv://admin:${DB_PASSWORD}@agencycluster1-nqyds.mongodb.net/test?retryWrites=true&w=majority`;
+const { dbMasterKey, db } = config;
+
+export const DB_URI = `mongodb+srv://admin:${dbMasterKey}@agencycluster1-nqyds.mongodb.net/${db}?retryWrites=true&w=majority`;

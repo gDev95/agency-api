@@ -18,10 +18,7 @@ export const fakeArtist = {
 	},
 	socialMedia: {
 		facebook: "",
-		instagram: "",
-		beatport: "",
-		residentAdvisor: "",
-		soundCloud: ""
+		instagram: ""
 	},
 	events: [
 		{

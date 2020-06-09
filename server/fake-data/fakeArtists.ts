@@ -6,32 +6,32 @@ export const fakeArtist = {
 		description: "Some description",
 		logoUrl: "http://image.com",
 		coverImageUrl: "http://image.com",
-		profileImageUrl: "http://image.com"
+		profileImageUrl: "http://image.com",
 	},
 	advancedInformation: {
 		labels: [{ logoUrl: "http://image.com", link: "www.test.com" }],
-		rider: {
+		setup: {
 			equipment: ["speakers"],
-			equipmentImageUrl: "http://image.com"
+			equipmentImageUrl: "http://image.com",
 		},
-		hospitality: ["free drinks"]
+		hospitality: ["free drinks"],
 	},
 	socialMedia: {
 		facebook: "",
-		instagram: ""
+		instagram: "",
 	},
 	events: [
 		{
 			time: {
 				start: "Start Time",
-				end: "End Time"
+				end: "End Time",
 			},
 			location: "XXX",
 			city: "Berlin",
 			facebookEventLink: "",
-			residentAdvisor: ""
-		}
-	]
+			residentAdvisor: "",
+		},
+	],
 };
 
 export const fakeArtistData: any = [fakeArtist];

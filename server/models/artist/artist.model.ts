@@ -17,7 +17,7 @@ export interface ILabel {
 	logoUrl: string;
 	link: string;
 }
-export interface IRider {
+export interface ISetup {
 	equipment: string[];
 	equipmentImageUrl: string;
 }
@@ -32,7 +32,7 @@ export interface IBasicInformation {
 
 export interface IAdvancedInformation {
 	labels: ILabel[];
-	rider: IRider;
+	Setup: ISetup;
 	hospitality: string[];
 }
 
@@ -65,7 +65,7 @@ const ArtistSchema: mongoose.Schema = new mongoose.Schema({
 	basicInformation: { type: Object, required: true, unique: true },
 	advancedInformation: { type: Object, required: true, unique: true },
 	socialMediaLinks: { type: Object, required: true },
-	events: { type: Array, required: true }
+	events: { type: Array, required: true },
 });
 
 const ArtistModel = mongoose.model<IArtistDocument>("Artist", ArtistSchema);

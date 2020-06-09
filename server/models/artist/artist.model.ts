@@ -32,7 +32,7 @@ export interface IBasicInformation {
 
 export interface IAdvancedInformation {
 	labels: ILabel[];
-	Setup: ISetup;
+	setup: ISetup;
 	hospitality: string[];
 }
 

@@ -4,7 +4,6 @@ import {
 	GraphQLString,
 	GraphQLObjectType,
 } from "graphql";
-import * as bcrypt from "bcrypt";
 import * as jwt from "jsonwebtoken";
 
 import ArtistModel from "../models/artist/artist.model";

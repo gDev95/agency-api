@@ -37,11 +37,11 @@ export interface IAdvancedInformation {
 }
 
 export interface ISocialMediaLinks {
-	facebook: string;
-	instagram: string;
-	beatport: string;
-	residentAdvisor: string;
-	soundCloud: string;
+	facebook?: string;
+	instagram?: string;
+	beatport?: string;
+	residentAdvisor?: string;
+	soundCloud?: string;
 }
 
 export interface IArtistDocument extends mongoose.Document {

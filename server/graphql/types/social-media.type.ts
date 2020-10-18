@@ -2,7 +2,6 @@ import {
 	GraphQLObjectType,
 	GraphQLString,
 	GraphQLInputObjectType,
-	GraphQLNonNull,
 } from "graphql";
 
 export const SocialMediaType = new GraphQLObjectType({

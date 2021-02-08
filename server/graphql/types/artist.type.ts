@@ -34,7 +34,7 @@ export const AddArtistInput = new GraphQLInputObjectType({
 	fields: () => ({
 		createdAt: { type: GraphQLNonNull(GraphQLString) },
 		basicInformation: { type: GraphQLNonNull(BasicInformationInput) },
-		advancedInformation: { type: GraphQLNonNull(AdvancedInformationInput) },
+		advancedInformation: { type: AdvancedInformationInput },
 		socialMediaLinks: { type: SocialMediaInput },
 		events: { type: GraphQLNonNull(GraphQLList(EventInput)) }
 	})
@@ -44,7 +44,7 @@ export const EditArtistInput = new GraphQLInputObjectType({
 	name: "EditArtistInput",
 	fields: () => ({
 		basicInformation: { type: GraphQLNonNull(BasicInformationInput) },
-		advancedInformation: { type: GraphQLNonNull(AdvancedInformationInput) },
+		advancedInformation: { type: AdvancedInformationInput },
 		socialMediaLinks: { type: SocialMediaInput }
 	})
 });

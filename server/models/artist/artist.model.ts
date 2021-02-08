@@ -25,15 +25,15 @@ export interface ISetup {
 export interface IBasicInformation {
 	name: string;
 	description: string;
-	logoUrl: string;
-	coverImageUrl: string;
-	profileImageUrl: string;
+	logoUrl?: string;
+	coverImageUrl?: string;
+	profileImageUrl?: string;
 }
 
 export interface IAdvancedInformation {
-	labels: ILabel[];
-	setup: ISetup;
-	hospitality: string[];
+	labels?: ILabel[];
+	setup?: ISetup;
+	hospitality?: string[];
 }
 
 export interface ISocialMediaLinks {

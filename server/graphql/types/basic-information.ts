@@ -21,8 +21,8 @@ export const BasicInformationInput = new GraphQLInputObjectType({
 	fields: () => ({
 		name: { type: GraphQLNonNull(GraphQLString) },
 		description: { type: GraphQLNonNull(GraphQLString) },
-		logoUrl: { type: GraphQLNonNull(GraphQLString) },
-		coverImageUrl: { type: GraphQLNonNull(GraphQLString) },
-		profileImageUrl: { type: GraphQLNonNull(GraphQLString) }
+		logoUrl: { type: GraphQLString },
+		coverImageUrl: { type: GraphQLString },
+		profileImageUrl: { type: GraphQLString }
 	})
 });

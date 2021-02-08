@@ -50,8 +50,8 @@ export const AdvancedInformationType = new GraphQLObjectType({
 export const AdvancedInformationInput = new GraphQLInputObjectType({
 	name: "AdvancedInformationInput",
 	fields: () => ({
-		labels: { type: GraphQLNonNull(GraphQLList(LabelInputType)) },
-		setup: { type: GraphQLNonNull(SetupInputType) },
-		hospitality: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
+		labels: { type: GraphQLList(LabelInputType) },
+		setup: { type: SetupInputType },
+		hospitality: { type: GraphQLList(GraphQLString) },
 	}),
 });

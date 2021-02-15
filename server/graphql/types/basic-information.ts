@@ -2,17 +2,19 @@ import {
 	GraphQLObjectType,
 	GraphQLString,
 	GraphQLInputObjectType,
-	GraphQLNonNull
+	GraphQLNonNull,
+	GraphQLBoolean
 } from "graphql";
 
 export const BasicInformationType = new GraphQLObjectType({
 	name: "BasicInformation",
 	fields: () => ({
-		name: { type: GraphQLString },
-		description: { type: GraphQLString },
-		logoUrl: { type: GraphQLString },
-		coverImageUrl: { type: GraphQLString },
-		profileImageUrl: { type: GraphQLString }
+		name: { type: GraphQLNonNull(GraphQLString) },
+		description: { type: GraphQLNonNull(GraphQLString) },
+		logoUrl: { type: GraphQLNonNull(GraphQLString) },
+		coverImageUrl: { type: GraphQLNonNull(GraphQLString) },
+		profileImageUrl: { type: GraphQLNonNull(GraphQLString) },
+		isDraft: { type: GraphQLNonNull(GraphQLBoolean) },
 	})
 });
 
@@ -23,6 +25,7 @@ export const BasicInformationInput = new GraphQLInputObjectType({
 		description: { type: GraphQLNonNull(GraphQLString) },
 		logoUrl: { type: GraphQLNonNull(GraphQLString) },
 		coverImageUrl: { type: GraphQLNonNull(GraphQLString) },
-		profileImageUrl: { type: GraphQLNonNull(GraphQLString) }
+		profileImageUrl: { type: GraphQLNonNull(GraphQLString) },
+		isDraft: { type: GraphQLNonNull(GraphQLBoolean) }
 	})
 });

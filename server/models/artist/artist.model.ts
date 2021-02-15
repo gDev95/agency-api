@@ -28,6 +28,7 @@ export interface IBasicInformation {
 	logoUrl: string;
 	coverImageUrl: string;
 	profileImageUrl: string;
+	isDraft: boolean;
 }
 
 export interface IAdvancedInformation {
@@ -48,7 +49,6 @@ export interface IArtistDocument extends mongoose.Document {
 	basicInformation: IBasicInformation;
 	advancedInformation: IAdvancedInformation;
 	socialMedia: ISocialMediaLinks;
-	isDraft: boolean,
 	events: IEvent[];
 }
 
@@ -58,7 +58,6 @@ export interface Artist {
 	basicInformation: IBasicInformation;
 	advancedInformation: IAdvancedInformation;
 	socialMedia: ISocialMediaLinks;
-	isDraft: boolean,
 	events: IEvent[];
 }
 
@@ -67,7 +66,6 @@ const ArtistSchema: mongoose.Schema = new mongoose.Schema({
 	basicInformation: { type: Object, required: true, unique: true },
 	advancedInformation: { type: Object, required: true, unique: true },
 	socialMediaLinks: { type: Object, required: true },
-	isDraft: { type: Boolean, required: true},
 	events: { type: Array, required: true },
 });
 

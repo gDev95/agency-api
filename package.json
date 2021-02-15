@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"start": "node ./build/server.js",
-		"dev": " ts-node-dev --respawn --transpileOnly ./server/server.ts",
+		"dev": " ts-node-dev ./server/server.ts --respawn --transpileOnly" ,
 		"tsc": "tsc",
 		"prod": "tsc && db-prod && node ./build/server.js",
 		"build": "tsc",

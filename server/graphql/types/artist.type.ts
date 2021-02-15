@@ -26,7 +26,6 @@ export const ArtistType = new GraphQLObjectType({
 		basicInformation: { type: BasicInformationType },
 		advancedInformation: { type: AdvancedInformationType },
 		socialMediaLinks: { type: SocialMediaType },
-		isDraft: { type: GraphQLNonNull(GraphQLBoolean)},
 		events: { type: GraphQLList(EventType) }
 	})
 });
@@ -38,7 +37,6 @@ export const AddArtistInput = new GraphQLInputObjectType({
 		basicInformation: { type: GraphQLNonNull(BasicInformationInput) },
 		advancedInformation: { type: GraphQLNonNull(AdvancedInformationInput) },
 		socialMediaLinks: { type: SocialMediaInput },
-		isDraft: { type: GraphQLNonNull(GraphQLBoolean)},
 		events: { type: GraphQLNonNull(GraphQLList(EventInput)) }
 	})
 });
@@ -49,6 +47,5 @@ export const EditArtistInput = new GraphQLInputObjectType({
 		basicInformation: { type: GraphQLNonNull(BasicInformationInput) },
 		advancedInformation: { type: GraphQLNonNull(AdvancedInformationInput) },
 		socialMediaLinks: { type: SocialMediaInput },
-		isDraft: { type: GraphQLNonNull(GraphQLBoolean)}
 	})
 });

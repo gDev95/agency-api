@@ -1,0 +1,18 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = git@github.com:gDev95/agency-api.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[commit]
+        gpgsign = false
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[branch "dev/make-images-optional"]
+	remote = origin
+	merge = refs/heads/dev/make-images-optional

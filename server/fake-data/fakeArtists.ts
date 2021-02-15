@@ -7,6 +7,7 @@ export const fakeArtist = {
 		logoUrl: "http://image.com",
 		coverImageUrl: "http://image.com",
 		profileImageUrl: "http://image.com",
+		isDraft: true,
 	},
 	advancedInformation: {
 		labels: [{ logoUrl: "http://image.com", link: "www.test.com" }],

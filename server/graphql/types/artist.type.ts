@@ -4,7 +4,8 @@ import {
 	GraphQLID,
 	GraphQLString,
 	GraphQLInputObjectType,
-	GraphQLNonNull
+	GraphQLNonNull,
+	GraphQLBoolean
 } from "graphql";
 import {
 	BasicInformationType,
@@ -45,6 +46,6 @@ export const EditArtistInput = new GraphQLInputObjectType({
 	fields: () => ({
 		basicInformation: { type: GraphQLNonNull(BasicInformationInput) },
 		advancedInformation: { type: GraphQLNonNull(AdvancedInformationInput) },
-		socialMediaLinks: { type: SocialMediaInput }
+		socialMediaLinks: { type: SocialMediaInput },
 	})
 });

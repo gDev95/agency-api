@@ -28,6 +28,7 @@ export interface IBasicInformation {
 	logoUrl: string;
 	coverImageUrl: string;
 	profileImageUrl: string;
+	isDraft: boolean;
 }
 
 export interface IAdvancedInformation {

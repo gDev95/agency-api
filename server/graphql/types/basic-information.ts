@@ -14,7 +14,7 @@ export const BasicInformationType = new GraphQLObjectType({
 		logoUrl: { type: GraphQLNonNull(GraphQLString) },
 		coverImageUrl: { type: GraphQLNonNull(GraphQLString) },
 		profileImageUrl: { type: GraphQLNonNull(GraphQLString) },
-		isDraft: { type: GraphQLNonNull(GraphQLBoolean) },
+		isDraft: { type: GraphQLBoolean },
 	})
 });
 

@@ -3,7 +3,8 @@ import {
 	GraphQLID,
 	GraphQLList,
 	GraphQLString,
-	GraphQLObjectType
+	GraphQLObjectType,
+	GraphQLBoolean
 } from "graphql";
 
 import ArtistModel from "../models/artist/artist.model";
@@ -23,9 +24,10 @@ export const RootQuery = new GraphQLObjectType({
 			}
 		},
 		artists: {
+			args: { isDraft: { type: GraphQLBoolean }},
 			type: new GraphQLList(ArtistType),
 			async resolve(parent: any, args: any) {
-				const artists = await ArtistModel.find({});
+				const artists = args.isDraft ? await ArtistModel.find({ "basicInformation.isDraft": args.isDraft }) : await ArtistModel.find({});
 				return artists;
 			}
 		},

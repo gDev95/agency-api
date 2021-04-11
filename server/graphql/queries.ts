@@ -27,7 +27,8 @@ export const RootQuery = new GraphQLObjectType({
 			args: { isDraft: { type: GraphQLBoolean }},
 			type: new GraphQLList(ArtistType),
 			async resolve(parent: any, args: any) {
-				const artists = await ArtistModel.find({ "basicInformation.isDraft": args.isDraft });
+				const artists = await ArtistModel.find({ "basicInformation.isDraft": !!args.isDraft })
+				return artists;
 			}
 		},
 		me: {

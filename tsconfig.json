@@ -10,9 +10,18 @@
 		"sourceMap": true,
 		"moduleResolution": "node",
 		"importHelpers": true,
-		"types": ["node", "jest"],
-		"typeRoots": ["node_modules/@types"]
+		"types": [
+			"node",
+			"jest"
+		],
+		"typeRoots": [
+			"node_modules/@types"
+		]
 	},
-	"include": ["./server/**/*"],
-	"exclude": ["./bin/"]
+	"include": [
+		"./server/**/*.ts"
+	],
+	"exclude": [
+		"./bin/"
+	]
 }

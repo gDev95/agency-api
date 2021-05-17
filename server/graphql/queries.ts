@@ -24,10 +24,17 @@ export const RootQuery = new GraphQLObjectType({
 			}
 		},
 		artists: {
-			args: { isDraft: { type: GraphQLBoolean }},
+			args: { isDraft: { type: GraphQLBoolean } },
 			type: new GraphQLList(ArtistType),
 			async resolve(parent: any, args: any) {
-				const artists = await ArtistModel.find({ "basicInformation.isDraft": !!args.isDraft })
+
+				if (typeof (args.isDraft) !== 'boolean') {
+					const artists = await ArtistModel.find()
+					return artists;
+				}
+
+				const artists = await ArtistModel.find({ "basicInformation.isDraft": args.isDraft })
+
 				return artists;
 			}
 		},

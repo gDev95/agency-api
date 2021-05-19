@@ -22,6 +22,6 @@ app.use(
 );
 
 app.listen(port, () =>
-	console.log(`Example app listening on port ${port} on ${environment}!`)
+	console.log(`Server listening on port ${port} on ${environment}!`)
 );
 connect();

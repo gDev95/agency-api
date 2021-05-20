@@ -50,12 +50,12 @@ export const RootQuery = new GraphQLObjectType({
 				console.log("Bla bla");
 			}
 		},
-		page: {
+		pageContent: {
 			type: PageContentType, 
 			args: { },
 			async resolve(){ 
 				// hardcoded id for now, id could be moved to me endpoint later
-				return await PageContentModel.find({ id: "60a677f671835f954e08d460"});
+				return await PageContentModel.findById("60a677f671835f954e08d460");
 			}
 		}
 	}

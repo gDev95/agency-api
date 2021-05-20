@@ -8,8 +8,10 @@ import {
 } from "graphql";
 
 import ArtistModel from "../models/artist/artist.model";
+import PageContentModel from '../models/pageContent/pageContent.model';
 
 import { ArtistType } from "./types/artist.type";
+import { PageContentType } from "./types/pageContent.type";
 import { UserType } from "./types/user.type";
 
 export const RootQuery = new GraphQLObjectType({
@@ -46,6 +48,14 @@ export const RootQuery = new GraphQLObjectType({
 			},
 			resolve(parent: any, args) {
 				console.log("Bla bla");
+			}
+		},
+		page: {
+			type: PageContentType, 
+			args: { },
+			async resolve(){ 
+				// hardcoded id for now, id could be moved to me endpoint later
+				return await PageContentModel.find({ id: "60a677f671835f954e08d460"});
 			}
 		}
 	}

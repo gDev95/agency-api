@@ -4,7 +4,7 @@ import {
 	GraphQLInputObjectType
 } from "graphql";
 
-const EventTimeType = new GraphQLObjectType({
+const EventTime = new GraphQLObjectType({
 	name: "EventTime",
 	fields: () => ({
 		start: { type: GraphQLString },
@@ -20,10 +20,10 @@ const EventTimeInput = new GraphQLInputObjectType({
 	})
 });
 
-export const EventType = new GraphQLObjectType({
+export const Event = new GraphQLObjectType({
 	name: "Event",
 	fields: () => ({
-		time: { type: EventTimeType },
+		time: { type: EventTime },
 		location: { type: GraphQLString },
 		city: { type: GraphQLString },
 		facebookEventLink: { type: GraphQLString },

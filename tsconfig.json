@@ -20,7 +20,7 @@
 	},
 	"include": [
 		"./server/**/*.ts"
-	],
+, "server/graphql/types/pageContent.typets"	],
 	"exclude": [
 		"./bin/"
 	]

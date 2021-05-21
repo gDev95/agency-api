@@ -6,7 +6,7 @@ import {
 	GraphQLBoolean
 } from "graphql";
 
-export const BasicInformationType = new GraphQLObjectType({
+export const BasicInformation = new GraphQLObjectType({
 	name: "BasicInformation",
 	fields: () => ({
 		name: { type: GraphQLNonNull(GraphQLString) },

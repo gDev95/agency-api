@@ -1,14 +1,14 @@
-import { GraphQLID, GraphQLInputObjectType, GraphQLNonNull, GraphQLObjectType, GraphQLString } from "graphql";
+import { GraphQLInputObjectType, GraphQLNonNull, GraphQLObjectType, GraphQLString } from "graphql";
 
-export const ContentType = new GraphQLObjectType({
-	name: "ContentType",
+export const Content = new GraphQLObjectType({
+	name: "Content",
 	fields: () => ({
 		en: { type:GraphQLNonNull(GraphQLString) },
-        es: { type: GraphQLNonNull(GraphQLString)g },
+        es: { type: GraphQLNonNull(GraphQLString) },
 	})
 });
-export const PageContentSocialMediaType = new GraphQLObjectType({
-	name: "PageContentSocialMediaType",
+export const PageContentSocialMedia = new GraphQLObjectType({
+	name: "PageContentSocialMedia",
 	fields: () => ({
 		facebook: { type: GraphQLNonNull(GraphQLString) },
         instagram: { type: GraphQLNonNull(GraphQLString) },
@@ -16,15 +16,15 @@ export const PageContentSocialMediaType = new GraphQLObjectType({
 	})
 });
 
-export const ContentInputType = new GraphQLInputObjectType({
-	name: "ContentInputType",
+export const ContentInput = new GraphQLInputObjectType({
+	name: "ContentInput",
 	fields: () => ({
 		en: { type: GraphQLNonNull(GraphQLString) },
         es: { type: GraphQLNonNull(GraphQLString) },
 	})
 });
-export const PageContentSocialMediaInputType = new GraphQLInputObjectType({
-	name: "PageContentSocialMediaInputType",
+export const PageContentSocialMediaInput = new GraphQLInputObjectType({
+	name: "PageContentSocialMediaInput",
 	fields: () => ({
 		facebook: { type: GraphQLString },
         instagram: { type: GraphQLString },
@@ -32,13 +32,13 @@ export const PageContentSocialMediaInputType = new GraphQLInputObjectType({
 	})
 });
 
-export const PageContentType = new GraphQLObjectType({
+export const PageContent = new GraphQLObjectType({
 	name: "PageContent",
 	fields: () => ({
 		lastModified: { type: GraphQLNonNull(GraphQLString) },
-		slogan: { type: GraphQLNonNull(ContentType) },
-		mission: { type: GraphQLNonNull(ContentType) },
-		socialMedia: { type: GraphQLNonNull(PageContentSocialMediaType) },
+		slogan: { type: GraphQLNonNull(Content) },
+		mission: { type: GraphQLNonNull(Content) },
+		socialMedia: { type: GraphQLNonNull(PageContentSocialMedia) },
 	})
 });
 
@@ -46,8 +46,8 @@ export const PageContentInput = new GraphQLInputObjectType({
 	name: "PageContentInput",
 	fields: () => ({
         lastModified: { type: GraphQLNonNull(GraphQLString) },
-		slogan: { type: GraphQLNonNull(ContentInputType) },
-		mission: { type: GraphQLNonNull(ContentInputType) },
-		socialMedia: { type: GraphQLNonNull(PageContentSocialMediaInputType) },
+		slogan: { type: GraphQLNonNull(ContentInput) },
+		mission: { type: GraphQLNonNull(ContentInput) },
+		socialMedia: { type: GraphQLNonNull(PageContentSocialMediaInput) },
 	})
 });

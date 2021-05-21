@@ -6,7 +6,7 @@ import {
 	GraphQLList,
 } from "graphql";
 
-const LabelType = new GraphQLObjectType({
+const Label = new GraphQLObjectType({
 	name: "Label",
 	fields: () => ({
 		logoUrl: { type: GraphQLString },
@@ -14,7 +14,7 @@ const LabelType = new GraphQLObjectType({
 	}),
 });
 
-const SetupType = new GraphQLObjectType({
+const Setup = new GraphQLObjectType({
 	name: "Setup",
 	fields: () => ({
 		equipment: { type: GraphQLList(GraphQLString) },
@@ -22,7 +22,7 @@ const SetupType = new GraphQLObjectType({
 	}),
 });
 
-const LabelInputType = new GraphQLInputObjectType({
+const LabelInput = new GraphQLInputObjectType({
 	name: "LabelInput",
 	fields: () => ({
 		logoUrl: { type: GraphQLString },
@@ -30,7 +30,7 @@ const LabelInputType = new GraphQLInputObjectType({
 	}),
 });
 
-const SetupInputType = new GraphQLInputObjectType({
+const SetupInput = new GraphQLInputObjectType({
 	name: "SetupInput",
 	fields: () => ({
 		equipment: { type: GraphQLList(GraphQLString) },
@@ -38,11 +38,11 @@ const SetupInputType = new GraphQLInputObjectType({
 	}),
 });
 
-export const AdvancedInformationType = new GraphQLObjectType({
+export const AdvancedInformation = new GraphQLObjectType({
 	name: "AdvancedInformation",
 	fields: () => ({
-		labels: { type: GraphQLList(LabelType) },
-		setup: { type: SetupType },
+		labels: { type: GraphQLList(Label) },
+		setup: { type: Setup },
 		hospitality: { type: GraphQLList(GraphQLString) },
 	}),
 });
@@ -50,8 +50,8 @@ export const AdvancedInformationType = new GraphQLObjectType({
 export const AdvancedInformationInput = new GraphQLInputObjectType({
 	name: "AdvancedInformationInput",
 	fields: () => ({
-		labels: { type: GraphQLNonNull(GraphQLList(LabelInputType)) },
-		setup: { type: GraphQLNonNull(SetupInputType) },
+		labels: { type: GraphQLNonNull(GraphQLList(LabelInput)) },
+		setup: { type: GraphQLNonNull(SetupInput) },
 		hospitality: { type: GraphQLNonNull(GraphQLList(GraphQLString)) },
 	}),
 });

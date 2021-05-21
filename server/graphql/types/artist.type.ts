@@ -8,25 +8,25 @@ import {
 	GraphQLBoolean
 } from "graphql";
 import {
-	BasicInformationType,
+	BasicInformation,
 	BasicInformationInput
 } from "./basic-information";
-import { EventType, EventInput } from "./event.type";
+import { Event, EventInput } from "./event.type";
 import { SocialMediaType, SocialMediaInput } from "./social-media.type";
 import {
-	AdvancedInformationType,
+	AdvancedInformation,
 	AdvancedInformationInput
 } from "./advanced-information.type";
 
-export const ArtistType = new GraphQLObjectType({
+export const Artist = new GraphQLObjectType({
 	name: "Artist",
 	fields: () => ({
 		id: { type: GraphQLID },
 		createdAt: { type: GraphQLString },
-		basicInformation: { type: BasicInformationType },
-		advancedInformation: { type: AdvancedInformationType },
+		basicInformation: { type: BasicInformation },
+		advancedInformation: { type: AdvancedInformation },
 		socialMediaLinks: { type: SocialMediaType },
-		events: { type: GraphQLList(EventType) }
+		events: { type: GraphQLList(Event) }
 	})
 });
 

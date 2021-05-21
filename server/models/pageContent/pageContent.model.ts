@@ -17,7 +17,7 @@ interface ISocialMedia  {
     instagram: string;
 }
 
-export interface PageContent {
+export interface IPageContent {
 	_id: string;
 	lastModified: string;
 	slogan: ISlogan;
@@ -39,5 +39,5 @@ const PageContentSchema: mongoose.Schema = new mongoose.Schema({
 	socialMedia: { type: Object, required: true },
 });
 
-const PageContent = mongoose.model<IPageContentDocument>("PageContent", PageContentSchema);
-export default PageContent;
+const PageContentModel = mongoose.model<IPageContentDocument>("PageContent", PageContentSchema);
+export default PageContentModel;

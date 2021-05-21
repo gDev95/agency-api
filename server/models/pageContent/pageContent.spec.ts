@@ -1,7 +1,7 @@
 import * as mongoose from "mongoose";
-import PageContentSchema, { IPageContentDocument, PageContent } from "./pageContent.model";
+import PageContentSchema, { IPageContentDocument, IPageContent } from "./pageContent.model";
 
-const fakePageContent: PageContent = {
+const fakePageContent: IPageContent = {
     _id: "some fake id" ,
     lastModified: 'today',
     slogan: { en: "english", es: "spanish"},

@@ -52,10 +52,9 @@ export const RootQuery = new GraphQLObjectType({
 		},
 		pageContent: {
 			type: PageContent,
-			args: { },
-			async resolve(){
-				// hardcoded id for now, id could be moved to me endpoint later
-				return await PageContentModel.findById("60a677f671835f954e08d460");
+			args: { id: { type: GraphQLNonNull(GraphQLID)}},
+			async resolve(parent: any, args: any){
+				return await PageContentModel.findById(args.id);
 			}
 		}
 	}

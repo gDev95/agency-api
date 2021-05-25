@@ -65,16 +65,21 @@ export const Mutation = new GraphQLObjectType({
 				const content = new PageContentModel(
 					{
 						lastModified: new Date(),
-						 slogan: { en: "", es: ""},
-						  mission: {en: "", es: ""},
-							 socialMedia:
-							 {
-								 facebook: "",
-								 instagram: "",
-								 soundcloud: ""
-								}
+						slogan: { en: "", es: ""},
+						mission: {en: "", es: ""},
+							socialMedia:
+							{
+							facebook: "",
+							instagram: "",
+							soundCloud: ""
+						},
+						contactDetails: {
+							phone:"",
+							email: ""
+						}
 					}
 				);
+				console.log("Content", content)
 				return content.save();
 			},
 		},

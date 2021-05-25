@@ -13,8 +13,13 @@ interface IMission {
 
 interface ISocialMedia  {
     facebook: string;
-    soundcloud: string;
+    soundCloud: string;
     instagram: string;
+}
+
+interface IContactDetails {
+	email: string;
+	phone: string;
 }
 
 export interface IPageContent {
@@ -23,6 +28,7 @@ export interface IPageContent {
 	slogan: ISlogan;
 	mission: IMission;
 	socialMedia: ISocialMedia;
+	contactDetails: IContactDetails;
 }
 
 export interface IPageContentDocument extends mongoose.Document {
@@ -30,6 +36,7 @@ export interface IPageContentDocument extends mongoose.Document {
 	slogan: ISlogan;
 	mission: IMission;
 	socialMedia: ISocialMedia;
+	contactDetails: IContactDetails;
 }
 
 const PageContentSchema: mongoose.Schema = new mongoose.Schema({
@@ -37,6 +44,7 @@ const PageContentSchema: mongoose.Schema = new mongoose.Schema({
 	slogan: { type: Object, required: true, unique: true },
 	mission: { type: Object, required: true, unique: true },
 	socialMedia: { type: Object, required: true },
+	contactDetails: { type: Object, required: true}
 });
 
 const PageContentModel = mongoose.model<IPageContentDocument>("PageContent", PageContentSchema);

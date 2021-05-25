@@ -7,14 +7,6 @@ export const Content = new GraphQLObjectType({
         es: { type: GraphQLNonNull(GraphQLString) },
 	})
 });
-export const PageContentSocialMedia = new GraphQLObjectType({
-	name: "PageContentSocialMedia",
-	fields: () => ({
-		facebook: { type: GraphQLNonNull(GraphQLString) },
-        instagram: { type: GraphQLNonNull(GraphQLString) },
-        soundcloud: { type: GraphQLNonNull(GraphQLString) },
-	})
-});
 
 export const ContentInput = new GraphQLInputObjectType({
 	name: "ContentInput",
@@ -23,12 +15,40 @@ export const ContentInput = new GraphQLInputObjectType({
         es: { type: GraphQLNonNull(GraphQLString) },
 	})
 });
+
+export const PageContentSocialMedia = new GraphQLObjectType({
+	name: "PageContentSocialMedia",
+	fields: () => ({
+		facebook: { type: GraphQLNonNull(GraphQLString) },
+        instagram: { type: GraphQLNonNull(GraphQLString) },
+        soundCloud: { type: GraphQLNonNull(GraphQLString) },
+	})
+});
+
 export const PageContentSocialMediaInput = new GraphQLInputObjectType({
 	name: "PageContentSocialMediaInput",
 	fields: () => ({
 		facebook: { type: GraphQLString },
         instagram: { type: GraphQLString },
-        soundcloud: { type: GraphQLString },
+        soundCloud: { type: GraphQLString },
+	})
+});
+
+export const ContactDetails = new GraphQLObjectType({
+	name: "ContactDetails",
+	fields: () => ({
+		email: { type: GraphQLNonNull(GraphQLString) },
+        phone: { type: GraphQLNonNull(GraphQLString) },
+
+	})
+});
+
+export const ContactDetailsInput = new GraphQLInputObjectType({
+	name: "ContactDetailsInput",
+	fields: () => ({
+		email: { type: GraphQLNonNull(GraphQLString) },
+        phone: { type: GraphQLNonNull(GraphQLString) },
+
 	})
 });
 
@@ -39,6 +59,7 @@ export const PageContent = new GraphQLObjectType({
 		slogan: { type: GraphQLNonNull(Content) },
 		mission: { type: GraphQLNonNull(Content) },
 		socialMedia: { type: GraphQLNonNull(PageContentSocialMedia) },
+		contactDetails: { type: GraphQLNonNull(ContactDetails)}
 	})
 });
 
@@ -49,5 +70,6 @@ export const PageContentInput = new GraphQLInputObjectType({
 		slogan: { type: GraphQLNonNull(ContentInput) },
 		mission: { type: GraphQLNonNull(ContentInput) },
 		socialMedia: { type: GraphQLNonNull(PageContentSocialMediaInput) },
+		contactDetails: { type: GraphQLNonNull(ContactDetailsInput)}
 	})
 });

@@ -6,10 +6,11 @@ const fakePageContent: IPageContent = {
     lastModified: 'today',
     slogan: { en: "english", es: "spanish"},
     mission: { en: 'english', es: "spanish"},
-    socialMedia: { facebook: "facebook", instagram: "instagram", soundcloud: "soundcloud"}
+    socialMedia: { facebook: "facebook", instagram: "instagram", soundCloud: "soundcloud"},
+	contactDetails: { email: "test@booking.com", phone: "+4910123125134"}
 }
 
-describe("Artist model", () => {
+describe("Page Content model", () => {
 	beforeAll(async () => {
 		await mongoose.connect("mongodb://127.0.0.1:27017/jest", {
 			useNewUrlParser: true
@@ -37,6 +38,6 @@ describe("Artist model", () => {
         expect(pageContent.mission.es).toBe("spanish");
         expect(pageContent.socialMedia.facebook).toBe("facebook");
         expect(pageContent.socialMedia.instagram).toBe("instagram");
-        expect(pageContent.socialMedia.soundcloud).toBe("soundcloud");
+        expect(pageContent.socialMedia.soundCloud).toBe("soundcloud");
 	});
 });

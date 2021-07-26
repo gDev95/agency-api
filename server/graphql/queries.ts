@@ -8,9 +8,11 @@ import {
 } from "graphql";
 
 import ArtistModel from "../models/artist/artist.model";
+import NewsModel from "../models/news/news.model";
 import PageContentModel from '../models/pageContent/pageContent.model';
 
 import { Artist } from "./types/artist.type";
+import { News } from "./types/news.type";
 import { PageContent } from "./types/pageContent.type";
 import { UserType } from "./types/user.type";
 
@@ -38,6 +40,22 @@ export const RootQuery = new GraphQLObjectType({
 				artists = await ArtistModel.find({ "basicInformation.isDraft": args.isDraft })
 
 				return artists;
+			}
+		},
+		newsPost: {
+			args: { id: { type: GraphQLNonNull(GraphQLID) } },
+			type: News,
+			async resolve(parent: any, args: any) {
+
+				return await NewsModel.findById(args.id);
+			}
+		},
+		news: {
+			args: { },
+			type: new GraphQLList(News),
+			async resolve() {
+
+				return await NewsModel.find();
 			}
 		},
 		me: {

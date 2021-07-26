@@ -7,6 +7,7 @@ import {
 import * as jwt from "jsonwebtoken";
 
 import ArtistModel from "../models/artist/artist.model";
+import NewsModel from "../models/news/news.model";
 import PageContentModel from "../models/pageContent/pageContent.model";
 import UserModel from "../models/user/user.model";
 
@@ -15,6 +16,7 @@ import {
 	AddArtistInput,
 	EditArtistInput,
 } from "./types/artist.type";
+import { News, NewsInput } from "./types/news.type";
 import { PageContentInput, PageContent } from "./types/pageContent.type";
 import { UserType } from "./types/user.type";
 
@@ -57,6 +59,37 @@ export const Mutation = new GraphQLObjectType({
 				const artist = await ArtistModel.findByIdAndDelete(args.id);
 				return artist;
 			},
+		},
+		addNews: {
+			type: News,
+			args: {
+				news: { type: GraphQLNonNull(NewsInput)}
+			},
+			resolve: (root: any, args: any, context: any, info: any) => {
+				const news = new NewsModel({ ...args.news });
+				return news.save();
+			},
+
+		},
+		updateNews: {
+			type: News,
+			args: {
+				id: { type: GraphQLNonNull(GraphQLID) },
+				news: { type: GraphQLNonNull(NewsInput)}
+			},
+			resolve: async (root: any, args: any, context: any, info: any) => {
+				const createdAt = new Date().toISOString();
+				const news = await NewsModel.findByIdAndUpdate(
+					args.id,
+					{
+						...args.news,
+						createdAt
+					},
+					{ new: true }
+				);
+				return news;
+			},
+
 		},
 		initializePageContent: {
 			type: PageContent,

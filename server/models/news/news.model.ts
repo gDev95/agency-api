@@ -6,11 +6,11 @@ export interface INews {
   imageUrl?: string;
   externalLink?: string;
   videoLink?: string;
-  title?: string;
+  title: string;
 }
 
 export interface INewsDocument extends mongoose.Document {
-  createdAt?: string;
+  createdAt: string;
   imageUrl?: string;
   externalLink?: string;
   title: string;
@@ -19,10 +19,10 @@ export interface INewsDocument extends mongoose.Document {
 
 const NewsSchema: mongoose.Schema = new mongoose.Schema({
   createdAt: { type: String, required: true },
-  imageUrl: { type: String, required: false },
+  imageUrl: { type: String, required: false, default: null },
   title: { type: String, required: true },
-  externalLink: { type: String, required: false },
-  videoLink: { type: String, required: false },
+  externalLink: { type: String, required: false, default: null },
+  videoLink: { type: String, required: false, default: null },
 });
 
 const NewsModel = mongoose.model<INewsDocument>("News", NewsSchema);

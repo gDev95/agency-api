@@ -15,6 +15,7 @@ app.use(
 	graphqlHTTP({
 		// directing express-graphql to use this schema to map out the graph
 		schema,
+		formatError: (err) => ({ message: err.message, status: 500 }),
 		// directing express-graphql to use graphiql when goto '/graphql' address in the browser
 		// which provides an interface to make GraphQl queries
 		graphiql: environment === "development" ? true : false
